@@ -41,8 +41,8 @@ public class Main {
         NodoD d9 = new NodoD("Pando", new ArrayList<>());
         LDobleD ld = new LDobleD();
         ld.adifinal(d1);
-        //ld.adifinal(d2);
-        //ld.adifinal(d3);
+        ld.adifinal(d2);
+        ld.adifinal(d3);
         //ld.adifinal(d4);
         //ld.adifinal(d5);
         //ld.adifinal(d6);

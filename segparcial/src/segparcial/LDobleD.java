@@ -63,6 +63,10 @@ public class LDobleD {
         NodoD z = getP();
         while (z != null) {
             System.out.println("Depto: [nombre=" + z.getNombre() + "]");
+            System.out.println(" ** Lista artistas ** ");
+            for (Artista a : z.getAl()) {
+                a.mostrar();
+            }
             z = z.getSig();
         }
     }
