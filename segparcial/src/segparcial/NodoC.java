@@ -10,7 +10,12 @@ public class NodoC {
     private NodoC sig;
 
     public void mostrar() {
-
+        System.out.println("Categoria: [" + idCat + ", " + descripcion + "]");
+        System.out.println("---- sib categorias");
+        for (SubCategoria sc : ls) {
+            sc.mostrar();
+        }
+        System.out.println();
     }
 
     public String getIdCat() {

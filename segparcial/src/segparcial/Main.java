@@ -1,10 +1,28 @@
 package segparcial;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        // Lista Categorias
+        LSimpleC lc = new LSimpleC();
+
+        // Sub Categorias
+        LinkedList<SubCategoria> lks1 = new LinkedList<>();
+        SubCategoria sc1 = new SubCategoria("s1", "sub 1");
+        SubCategoria sc2 = new SubCategoria("s1", "sub 1");
+        lks1.add(sc1);
+        lks1.add(sc2);
+
+        // llenar categorias
+        lc.adiFinal("c1", "Artes musicales", lks1);
+        lc.adiFinal("c2", "Artes escenicas", lks1);
+        
+        lc.mostrar();
+
         // Departamentos
         NodoD d1 = new NodoD("Chuquizaca", new ArrayList<>());
         NodoD d2 = new NodoD("La Paz", new ArrayList<>());
@@ -27,7 +45,8 @@ public class Main {
         ld.adifinal(d9);
 
         ld.mostrar();
-        
+
+        // ategorias
         // Artistas
         Artista a1 = new Artista("a1", "Bony Lovy", "112233", "28/10/2022", "musica", "c1", "s1", "individual");
 
