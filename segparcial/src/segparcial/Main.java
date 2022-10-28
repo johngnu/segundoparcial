@@ -14,12 +14,13 @@ public class Main {
         LinkedList<SubCategoria> lks1 = new LinkedList<>();
         SubCategoria sc1 = new SubCategoria("s1", "regueton");
         SubCategoria sc2 = new SubCategoria("s2", "musica urvana");
+        SubCategoria sc3 = new SubCategoria("s3", "cumbia");
         lks1.add(sc1);
         lks1.add(sc2);
 
         // llenar categorias
         lc.adiFinal("c1", "Artes musicales", lks1);
-        lc.adiFinal("c2", "Artes escenicas", lks1);
+        lc.adiFinal("c2", "Artes escenicas", new LinkedList<>());
 
         lc.mostrar();
 
