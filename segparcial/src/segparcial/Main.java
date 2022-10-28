@@ -51,7 +51,31 @@ public class Main {
         //ld.adifinal(d9);
 
         ld.mostrar();
+        System.out.println("Solucion C");
+        SolucionC(lc, ld, "La Paz");
 
+    }
+
+    private static void SolucionC(LSimpleC lc, LDobleD ld, String d) {
+        NodoC r = lc.getP();
+        while (r != null) {
+            System.out.println("** " + r.getDescripcion());
+            NodoD z = ld.getP();
+            int cont = 0;
+            while (z != null) {
+                // verificamos si es el departamento
+                if (z.getNombre().equals(d)) {                     
+                    for (Artista a : z.getAl()) {
+                        if (a.getTipo().equals("individual")) {
+                            cont++;
+                        }
+                    }
+                }
+                z = z.getSig();
+            }
+            System.out.println("Hay: " + cont);
+            r = r.getSig();
+        }
     }
 
 }
