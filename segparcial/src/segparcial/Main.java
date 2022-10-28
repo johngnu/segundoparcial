@@ -30,7 +30,7 @@ public class Main {
         la.add(a1);
 
         // Departamentos
-        NodoD d1 = new NodoD("Chuquisaca", la);
+        /*NodoD d1 = new NodoD("Chuquisaca", la);
         NodoD d2 = new NodoD("La Paz", new ArrayList<>());
         NodoD d3 = new NodoD("Cochabamba", new ArrayList<>());
         NodoD d4 = new NodoD("Oruro", new ArrayList<>());
@@ -38,11 +38,12 @@ public class Main {
         NodoD d6 = new NodoD("Tarija", new ArrayList<>());
         NodoD d7 = new NodoD("Santa Cruz", new ArrayList<>());
         NodoD d8 = new NodoD("Beni", new ArrayList<>());
-        NodoD d9 = new NodoD("Pando", new ArrayList<>());
+        NodoD d9 = new NodoD("Pando", new ArrayList<>());*/
+        
         LDobleD ld = new LDobleD();
-        ld.adifinal(d1);
-        ld.adifinal(d2);
-        ld.adifinal(d3);
+        ld.adifinal("Chuquisaca", la);
+        ld.adifinal("La Paz", new ArrayList<>());
+        ld.adifinal("Oruro", new ArrayList<>());
         //ld.adifinal(d4);
         //ld.adifinal(d5);
         //ld.adifinal(d6);
@@ -51,8 +52,12 @@ public class Main {
         //ld.adifinal(d9);
 
         ld.mostrar();
+
         System.out.println("Solucion C");
         SolucionC(lc, ld, "Chuquisaca");
+
+        System.out.println("Solucion B");
+        SolucionB(lc, ld, "Chuquisaca", "Artes musicales");
 
     }
 
@@ -64,7 +69,7 @@ public class Main {
             int cont = 0;
             while (z != null) {
                 // verificamos si es el departamento
-                if (z.getNombre().equals(d)) {                     
+                if (z.getNombre().equals(d)) {
                     for (Artista a : z.getAl()) {
                         if (a.getTipo().equals("individual") && a.getIdCat().equals(r.getIdCat())) {
                             cont++;
@@ -75,6 +80,33 @@ public class Main {
             }
             System.out.println("Hay: " + cont);
             r = r.getSig();
+        }
+    }
+
+    private static void SolucionB(LSimpleC lc, LDobleD ld, String x, String y) {
+        NodoD z = ld.getP();
+        while (z != null) {
+            // verificamos si es el departamento x
+            if (z.getNombre().equals(x)) {
+                System.out.println("** " + z.getNombre());
+                NodoC r = lc.getP();
+                while (r != null) {
+                    // verificamos categoria y
+                    if (r.getDescripcion().equals(y)) {
+                        // recorremos todas las sub categorias
+                        for (SubCategoria sc : r.getLs()) {
+                            System.out.println("Sub Cat: " + sc.getDescripcion());
+                            for (Artista a : z.getAl()) {
+                                if (a.getIdSub().equals(sc.getIdSub()) && a.getIdCat().equals(r.getIdCat())) {
+                                    a.mostrar();
+                                }
+                            }
+                        }
+                    }
+                    r = r.getSig();
+                }
+            }
+            z = z.getSig();
         }
     }
 

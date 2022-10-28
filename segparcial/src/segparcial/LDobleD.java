@@ -5,6 +5,8 @@
  */
 package segparcial;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author desktop
@@ -35,7 +37,10 @@ public class LDobleD {
         }
     }
 
-    public void adifinal(NodoD nuevo) {
+    public void adifinal(String nombre, ArrayList<Artista> la) {
+        NodoD nuevo = new NodoD();
+        nuevo.setNombre(nombre);
+        nuevo.setAl(la);
         if (getP() == null) {
             setP(nuevo);
         } else {
