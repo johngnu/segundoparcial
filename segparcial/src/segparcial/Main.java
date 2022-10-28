@@ -12,8 +12,8 @@ public class Main {
 
         // Sub Categorias
         LinkedList<SubCategoria> lks1 = new LinkedList<>();
-        SubCategoria sc1 = new SubCategoria("s1", "sub 1");
-        SubCategoria sc2 = new SubCategoria("s1", "sub 1");
+        SubCategoria sc1 = new SubCategoria("s1", "regueton");
+        SubCategoria sc2 = new SubCategoria("s2", "musica urvana");
         lks1.add(sc1);
         lks1.add(sc2);
 
