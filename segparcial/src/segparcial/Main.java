@@ -30,7 +30,7 @@ public class Main {
         la.add(a1);
 
         // Departamentos
-        NodoD d1 = new NodoD("Chuquizaca", la);
+        NodoD d1 = new NodoD("Chuquisaca", la);
         NodoD d2 = new NodoD("La Paz", new ArrayList<>());
         NodoD d3 = new NodoD("Cochabamba", new ArrayList<>());
         NodoD d4 = new NodoD("Oruro", new ArrayList<>());
@@ -52,7 +52,7 @@ public class Main {
 
         ld.mostrar();
         System.out.println("Solucion C");
-        SolucionC(lc, ld, "La Paz");
+        SolucionC(lc, ld, "Chuquisaca");
 
     }
 
@@ -66,7 +66,7 @@ public class Main {
                 // verificamos si es el departamento
                 if (z.getNombre().equals(d)) {                     
                     for (Artista a : z.getAl()) {
-                        if (a.getTipo().equals("individual")) {
+                        if (a.getTipo().equals("individual") && a.getIdCat().equals(r.getIdCat())) {
                             cont++;
                         }
                     }
