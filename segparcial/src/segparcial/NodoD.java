@@ -8,6 +8,14 @@ public class NodoD {
     private ArrayList<Artista> al;
     private NodoD sig, ant;
 
+    public NodoD() {
+    }
+
+    public NodoD(String nombre, ArrayList<Artista> al) {
+        this.nombre = nombre;
+        this.al = al;
+    }
+
     public String getNombre() {
         return nombre;
     }
