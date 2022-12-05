@@ -17,7 +17,9 @@ import Controlador.Plato;
 import estructuras.ColaParticipantes;
 import estructuras.LSimpleE;
 import estructuras.LSimpleM;
+import estructuras.NodoE;
 import estructuras.NodoM;
+import estructuras.Participante;
 
 public class PantallaPrincipal extends JPanel {
 
@@ -405,7 +407,28 @@ public class PantallaPrincipal extends JPanel {
         while (r != null) {
             v[i][0] = r.getM().getNro();
             v[i][1] = r.getM().getNombre();
-            v[i][2] = 100;
+
+            int sum = 0;
+            NodoE re = le.getP();
+            while (re != null) {
+                if (re.getMd().equals(r.getM().getNro())) {
+                    Participante elem;
+                    boolean sw = false;
+                    ColaParticipantes aux = new ColaParticipantes();
+                    while (!cp.esvacia()) {
+                        elem = cp.eliminar();
+                        if (elem.getIdEscuela().equals(re.getIdEscuela())) {
+                            sum++;
+                        }
+                        aux.adicionar(elem);
+                    }
+                    cp.vaciar(aux);
+                }
+                re = re.getSig();
+            }
+            
+            v[i][2] = sum;
+
             r = r.getSig();
             i++;
         }
