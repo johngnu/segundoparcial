@@ -3,25 +3,21 @@ package estructuras;
 public class Curso {
 
     private String idCurso;
-    private String idEscuela;
     private String nombre;
     private String fecInicio;
     private String fecFinal;
     private String disciplina;
-    private ColaParticipantes cp;
 
     public Curso() {
-        
+
     }
 
-    public Curso(String idCurso, String idEscuela, String nombre, String fecInicio, String fecFinal, String disciplina, ColaParticipantes cp) {
+    public Curso(String idCurso, String nombre, String fecInicio, String fecFinal, String disciplina) {
         this.idCurso = idCurso;
-        this.idEscuela = idEscuela;
         this.nombre = nombre;
         this.fecInicio = fecInicio;
         this.fecFinal = fecFinal;
         this.disciplina = disciplina;
-        this.cp = cp;
     }
 
     public void mostrar() {
@@ -42,14 +38,6 @@ public class Curso {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getIdEscuela() {
-        return idEscuela;
-    }
-
-    public void setIdEscuela(String idEscuela) {
-        this.idEscuela = idEscuela;
     }
 
     public String getFecInicio() {
@@ -74,14 +62,6 @@ public class Curso {
 
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;
-    }
-
-    public ColaParticipantes getCp() {
-        return cp;
-    }
-
-    public void setCp(ColaParticipantes cp) {
-        this.cp = cp;
     }
 
 }

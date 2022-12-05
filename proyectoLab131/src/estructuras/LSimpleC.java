@@ -53,9 +53,10 @@ class LSimpleC {
         }
     }
     
-    void leer() {
-        ColaParticipantes cp1 = new ColaParticipantes();
-        cp1.leer();
-        //adiFinal(ne w Curso("c1", "e1", "Futbol", "01/10/2022", "31/12/2022", "Futbol", cp1));
+    void leer() {        
+        adiFinal(new Curso("c1", "Futbol", "01/10/2022", "31/12/2022", "Futbol"));
+        adiFinal(new Curso("c2", "Basquetball", "01/10/2022", "31/12/2022", "Basquetball"));
+        adiFinal(new Curso("c3", "Atletismo", "01/10/2022", "31/12/2022", "Atletismo"));
+        adiFinal(new Curso("c4", "Natacion", "01/10/2022", "31/12/2022", "Natacion"));
     }
 }

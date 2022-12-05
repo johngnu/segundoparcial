@@ -74,20 +74,20 @@ public class ColaParticipantes {
         adicionar(new Participante("112202", "Roberto Paco ", 17, "A", "1"));
         adicionar(new Participante("112203", "Helen Castillo", 12, "C", "1"));
         adicionar(new Participante("112204", "Aanabel Tito", 18, "C", "1"));
-        adicionar(new Participante("112205", "Roger Soto", 11, "A", "1"));
-        adicionar(new Participante("112206", "Juan Carlos Marquez", 13, "A", "1"));
-        adicionar(new Participante("112207", "Maria Esther Salas", 19, "A", "1"));
+        adicionar(new Participante("112205", "Roger Soto", 11, "A", "2"));
+        adicionar(new Participante("112206", "Juan Carlos Marquez", 13, "A", "2"));
+        adicionar(new Participante("112207", "Maria Esther Salas", 19, "A", "2"));
         adicionar(new Participante("112208", "Rolando Walas", 17, "C", "1"));
         adicionar(new Participante("112209", "Roberta Yong", 19, "B", "1"));
         adicionar(new Participante("112210", "Claudio Salas", 19, "B", "1"));
-        adicionar(new Participante("112211", "Gilberto Rojas", 21, "B", "1"));
-        adicionar(new Participante("112212", "Patricia Guzman", 14, "B", "1"));
-        adicionar(new Participante("112213", "Pamela Rios", 15, "B", "1"));
-        adicionar(new Participante("112214", "Karen gutierrez", 16, "B", "1"));
-        adicionar(new Participante("112215", "Richard Doglas", 16, "B", "1"));
-        adicionar(new Participante("112216", "Wilson Cabrera", 18, "B", "1"));
+        adicionar(new Participante("112211", "Gilberto Rojas", 21, "B", "3"));
+        adicionar(new Participante("112212", "Patricia Guzman", 14, "B", "3"));
+        adicionar(new Participante("112213", "Pamela Rios", 15, "B", "3"));
+        adicionar(new Participante("112214", "Karen gutierrez", 16, "B", "3"));
+        adicionar(new Participante("112215", "Richard Doglas", 16, "B", "3"));
+        adicionar(new Participante("112216", "Wilson Cabrera", 18, "B", "3"));
         adicionar(new Participante("112217", "Alicia Apaza", 23, "B", "1"));
-        adicionar(new Participante("112218", "Michel torricos", 20, "B", "1"));
+        adicionar(new Participante("112218", "Michel torricos", 20, "B", "2"));
         adicionar(new Participante("112219", "Hugo Calcina", 17, "B", "1"));
     }
 }

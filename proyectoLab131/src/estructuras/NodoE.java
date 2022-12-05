@@ -6,6 +6,7 @@ public class NodoE {
     private String nombre;
     private String direccion;
     private String telefono;
+    private String md; // id macrodistrito
     private LSimpleC lc;
     private LDobleA la;
     private PilaInstructores pi;
@@ -80,6 +81,14 @@ public class NodoE {
 
     public void setPi(PilaInstructores pi) {
         this.pi = pi;
+    }
+
+    public String getMd() {
+        return md;
+    }
+
+    public void setMd(String md) {
+        this.md = md;
     }
 
 }
