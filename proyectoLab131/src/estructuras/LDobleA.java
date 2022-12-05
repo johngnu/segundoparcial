@@ -45,4 +45,8 @@ public class LDobleA {
             z = z.getSig();
         }
     }
+    
+    public void leer() {
+        
+    }
 }

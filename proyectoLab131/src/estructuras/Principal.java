@@ -23,8 +23,8 @@ public class Principal {
         la.adiprincipio(new Administrativo("123456", "Roberto Flores", "65544332", "Mañana", "Secretario", 3200));
 
         //la.mostrar();
-        LSimpleE le = new LSimpleE();
-        le.adiPrincipio("e1", "Copacabana C", "4455667", "Av. tito Yupanqui #345", lc1, la, pi);
+        //LSimpleE le = new LSimpleE();
+        //le.adiPrincipio("e1", "Copacabana C", "4455667", "Av. tito Yupanqui #345", lc1, la, pi);
 
         //le.mostrar();
         //LSimpleM lm = new LSimpleM();
