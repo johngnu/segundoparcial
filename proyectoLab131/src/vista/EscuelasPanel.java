@@ -1,5 +1,6 @@
 package vista;
 
+import estructuras.ColaParticipantes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import estructuras.LSimpleE;
 import estructuras.LSimpleM;
 import estructuras.NodoE;
+import estructuras.Participante;
 
 public class EscuelasPanel extends JPanel {
 
@@ -30,11 +32,13 @@ public class EscuelasPanel extends JPanel {
     private JScrollPane tablaSp;
     private LSimpleE lista;
     private LSimpleM lm;
+    private ColaParticipantes cp;
     private JLabel salida;
 
-    public EscuelasPanel(LSimpleM lm, LSimpleE le) {
+    public EscuelasPanel(LSimpleM lm, LSimpleE le, ColaParticipantes cp) {
         this.lista = le;
         this.lm = lm;
+        this.cp = cp;
         init();
     }
 
@@ -161,9 +165,29 @@ public class EscuelasPanel extends JPanel {
                     return;
                 }
 
-                salida.setText("El resultado es : Juan MACHACA");
+                boolean sw = false;
+                int may = 0;
 
-                
+                NodoE r = lista.getP();
+                while (r != null) {
+                    if (r.getIdEscuela().equals(t1.getText())) {
+                        Participante elem;
+
+                        ColaParticipantes aux = new ColaParticipantes();
+                        while (!lista.esvacia()) {
+                            elem = cp.eliminar();
+                            if (elem.getEdad() > may) {
+                                may = elem.getEdad();
+                            }
+                            aux.adicionar(elem);
+                        }
+                        cp.vaciar(aux);
+                    }
+                    r = r.getSig();
+                }
+
+                salida.setText("El mayor tiene :" + may + " anios");
+
             }
         });
     }

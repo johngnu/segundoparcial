@@ -54,7 +54,7 @@ public class PantallaPrincipal extends JPanel {
 
         cp = new ColaParticipantes();
         cp.leer();
-        
+
         le = new LSimpleE();
         le.leer();
 
@@ -111,7 +111,7 @@ public class PantallaPrincipal extends JPanel {
         escuelas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EscuelasFrame mc = new EscuelasFrame(lm, le);
+                EscuelasFrame mc = new EscuelasFrame(lm, le, cp);
                 mc.setVisible(true);
             }
         });
