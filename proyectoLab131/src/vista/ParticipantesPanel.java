@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import estructuras.ColaParticipantes;
+import estructuras.LSimpleE;
+import estructuras.NodoE;
 import estructuras.Participante;
 
 public class ParticipantesPanel extends JPanel {
@@ -27,11 +29,13 @@ public class ParticipantesPanel extends JPanel {
     private int rowCount = 0;
     private JTable tabla;
     private JScrollPane tablaSp;
-    private ColaParticipantes lista;    
+    private ColaParticipantes lista;
+    private LSimpleE le;
     private JLabel salida;
 
-    public ParticipantesPanel(ColaParticipantes lista) {
+    public ParticipantesPanel(ColaParticipantes lista, LSimpleE le) {
         this.lista = lista;
+        this.le = le;
         init();
     }
 
@@ -73,12 +77,12 @@ public class ParticipantesPanel extends JPanel {
         titulo.setBackground(Color.decode("#cb2525"));
         titulo.setOpaque(true);
         titulo.setPreferredSize(new Dimension(200, 60));
-        
+
         salida = new JLabel();
         salida.setBorder(new LineBorder(Color.white));
 
         Object data[][] = llenarTabla();
-        String[] columnNames = {"CI", "NOMBRE", "EDAD", "CATEGORIA"};
+        String[] columnNames = {"CI", "NOMBRE", "EDAD", "CATEGORIA", "ID ESC."};
         model = new DefaultTableModel(data, columnNames);
         tabla = new JTable(model);
 
@@ -97,7 +101,7 @@ public class ParticipantesPanel extends JPanel {
 
         Box cajaIzq = Box.createVerticalBox();
         cajaIzq.add(new JLabel("PROBLEMA 2"));
-        
+
         Box enbox = Box.createHorizontalBox();
         enbox.add(new JLabel("<html>Mostrar la ESCUELA al que pertenece el PARTICIPANTE con CI 'X'</html>"));
         cajaIzq.add(enbox);
@@ -108,8 +112,6 @@ public class ParticipantesPanel extends JPanel {
         caja1.add(t1);
         cajaIzq.add(caja1);
 
-        
-        
         Box outbox = Box.createHorizontalBox();
         outbox.add(salida);
         cajaIzq.add(outbox);
@@ -131,7 +133,7 @@ public class ParticipantesPanel extends JPanel {
 
     public Object[][] llenarTabla() {
         int x = lista.nroelem();
-        Object[][] v = new Object[x][4];
+        Object[][] v = new Object[x][5];
         Participante elem;
         int i = 0;
         ColaParticipantes aux = new ColaParticipantes();
@@ -141,6 +143,7 @@ public class ParticipantesPanel extends JPanel {
             v[i][1] = elem.getNombre();
             v[i][2] = elem.getEdad();
             v[i][3] = elem.getCategoria();
+            v[i][4] = elem.getIdEscuela();
             aux.adicionar(elem);
             i++;
         }
@@ -148,9 +151,8 @@ public class ParticipantesPanel extends JPanel {
         rowCount = 1;
         return v;
     }
-    
+
     /* PROBLEMA 2 */
-    
     public void ejecutar() {
         ejecutar = new JButton("EJECUTAR");
         ejecutar.addActionListener(new ActionListener() {
@@ -162,29 +164,30 @@ public class ParticipantesPanel extends JPanel {
                     JOptionPane.showMessageDialog(null, "RELLENE DATOS");
                     return;
                 }
-                
-                salida.setText("El resultado es : Juan MACHACA");
-                
 
-                /*if (input == JOptionPane.YES_OPTION) {
-                    t1.setEditable(true);
-                    t2.setEditable(true);
+                Participante elem;
+                boolean sw = false;
+                ColaParticipantes aux = new ColaParticipantes();
+                while (!lista.esvacia()) {
+                    elem = lista.eliminar();
+                    if (elem.getCi().equals(t1.getText())) {
+                        sw = true;
+                        NodoE r = le.getP();
+                        while (r != null) {
+                            if (r.getIdEscuela().equals(elem.getIdEscuela())) {
+                                salida.setText("<html>El participante está en la escuela: " + r.getNombre() + ", Dirección: " + r.getDireccion() + "</html>");
+                            }
+                            r = r.getSig();
+                        }
+                    }
+                    aux.adicionar(elem);
+                }
+                lista.vaciar(aux);
 
-                    //TableModel model =  tabla.getModel();
-                    model.addRow(new Object[]{t1.getText(), t2.getText()});
-                    //lista.(new Macrodistrito(t2.getText(), t1.getText()));
-                    //rowCount++;
-                    
-                    t1.setText("");
-                    t2.setText("");
-                }*/
+                if (!sw) {
+                    salida.setText("EL REGISTRO NO EXISTE");
+                }
 
-                /*else if (input == JOptionPane.NO_OPTION){
-		            System.out.println("You selected: No");
-		        }else{
-		            System.out.println("none cancel");
-		            }
-                 */
             }
         });
     }

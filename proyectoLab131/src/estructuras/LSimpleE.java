@@ -75,11 +75,9 @@ public class LSimpleE {
     }
 
     public void leer() {
-        //cp1.mostrar();
         LSimpleC lc1 = new LSimpleC();
         lc1.leer();
 
-        //lc1.mostrar();
         LDobleA la = new LDobleA();
         la.leer();
         la.adiprincipio(new Administrativo("123456", "Roberto Flores", "65544332", "Mañana", "Secretario", 3200));
@@ -89,6 +87,10 @@ public class LSimpleE {
         PilaInstructores pi = new PilaInstructores();
         pi.adicionar(d1);
         pi.adicionar(d2);
+
+        adiPrincipio("1", "Copacabana C", "4455667", "Av. tito Yupanqui #345", "1", lc1, la, pi);
+        adiPrincipio("2", "Escuala Deportiva Cotahuma", "4455688", "Av. Reyes #345, Z. Cotahuma", "2", lc1, la, pi);
+        adiPrincipio("3", "Escuela de futbol", "4455667", "Av. Busch #1002 Z. Miraflores", "1", lc1, la, pi);
 
     }
 }

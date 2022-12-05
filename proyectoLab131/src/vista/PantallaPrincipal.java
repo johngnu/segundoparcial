@@ -15,6 +15,7 @@ import Controlador.PilaPedido;
 import Controlador.PilaPlato;
 import Controlador.Plato;
 import estructuras.ColaParticipantes;
+import estructuras.LSimpleE;
 import estructuras.LSimpleM;
 import estructuras.NodoM;
 
@@ -39,6 +40,7 @@ public class PantallaPrincipal extends JPanel {
     // ESTRUCTURAS
     private LSimpleM lm;
     private ColaParticipantes cp;
+    private LSimpleE le;
 
     private int count = 0;
 
@@ -52,13 +54,16 @@ public class PantallaPrincipal extends JPanel {
 
         cp = new ColaParticipantes();
         cp.leer();
+        
+        le = new LSimpleE();
+        le.leer();
 
         CrearInterfaz();
         escuelas();
         admins();
         instructors();
-        verParticipantes();
-        verMacros();
+        participantes();
+        macrodistritos();
         CreateBox();
     }
 
@@ -106,49 +111,8 @@ public class PantallaPrincipal extends JPanel {
         escuelas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() || t4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "RELLENE DATOS DEL CLIENTE");
-                    return;
-                }
-                if (!t3.getText().matches("[+-]?\\d*(\\.\\d+)?") || !t4.getText().matches("[+-]?\\d*(\\.\\d+)?")) {
-                    JOptionPane.showMessageDialog(null, "el cod y cantidad no son numero");
-                    t3.setText("");
-                    t4.setText("");
-                    return;
-                }
-
-                if (t1.isEditable()) {
-                    model.setRowCount(0);
-                }
-
-                String nom = t1.getText().trim();
-                int nitc = Integer.parseInt(t2.getText().trim());
-                int codp = Integer.parseInt(t3.getText().trim());
-                int cant = Integer.parseInt(t4.getText().trim());
-                monto.setText("MONTO A PAGAR POR : " + nom);
-                t3.setText("");
-                t4.setText("");
-                t1.setEditable(false);
-                t2.setEditable(false);
-                total.setText("");
-                //add la interfe
-                model.setRowCount(count);
-                String nomPlato = getNombrePlato(codp);
-                int precio = getPrecioPlato(codp);
-                Object[] fila = {nomPlato, cant, precio};
-                model.addRow(fila);
-                count++;
-                //pila pedido
-
-                //
-                Pedido pd = new Pedido();
-                pd.setCodPlato(codp);
-                pd.setCantidad(cant);
-                Cliente clt = new Cliente();
-                clt.setNombre(nom);
-                clt.setNit(nitc);
-                pd.setClt(clt);
-                pp.adicionar(pd);
+                EscuelasFrame mc = new EscuelasFrame(lm, le);
+                mc.setVisible(true);
             }
         });
     }
@@ -286,7 +250,7 @@ public class PantallaPrincipal extends JPanel {
         });
     }
 
-    public void verMacros() {
+    public void macrodistritos() {
         macros = new JButton("MACRODISTRITOS");
         macros.addActionListener(new ActionListener() {
             @Override
@@ -297,12 +261,12 @@ public class PantallaPrincipal extends JPanel {
         });
     }
 
-    public void verParticipantes() {
+    public void participantes() {
         participantes = new JButton("PARTICIPANTES");
         participantes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ParticipantesFrame mc = new ParticipantesFrame(cp);
+                ParticipantesFrame mc = new ParticipantesFrame(cp, le);
                 mc.setVisible(true);
             }
         });

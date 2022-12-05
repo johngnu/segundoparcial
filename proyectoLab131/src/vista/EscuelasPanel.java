@@ -15,8 +15,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import estructuras.ColaParticipantes;
-import estructuras.Participante;
+import estructuras.LSimpleE;
+import estructuras.LSimpleM;
+import estructuras.NodoE;
 
 public class EscuelasPanel extends JPanel {
 
@@ -27,11 +28,13 @@ public class EscuelasPanel extends JPanel {
     private int rowCount = 0;
     private JTable tabla;
     private JScrollPane tablaSp;
-    private ColaParticipantes lista;    
+    private LSimpleE lista;
+    private LSimpleM lm;
     private JLabel salida;
 
-    public EscuelasPanel(ColaParticipantes lista) {
-        this.lista = lista;
+    public EscuelasPanel(LSimpleM lm, LSimpleE le) {
+        this.lista = le;
+        this.lm = lm;
         init();
     }
 
@@ -73,12 +76,12 @@ public class EscuelasPanel extends JPanel {
         titulo.setBackground(Color.decode("#cb2525"));
         titulo.setOpaque(true);
         titulo.setPreferredSize(new Dimension(200, 60));
-        
+
         salida = new JLabel();
         salida.setBorder(new LineBorder(Color.white));
 
         Object data[][] = llenarTabla();
-        String[] columnNames = {"CI", "NOMBRE", "EDAD", "CATEGORIA"};
+        String[] columnNames = {"ID", "NOMBRE", "TELF.", "DIRECCION"};
         model = new DefaultTableModel(data, columnNames);
         tabla = new JTable(model);
 
@@ -96,20 +99,18 @@ public class EscuelasPanel extends JPanel {
         h1.add(titulo);
 
         Box cajaIzq = Box.createVerticalBox();
-        cajaIzq.add(new JLabel("PROBLEMA 2"));
-        
+        cajaIzq.add(new JLabel("PROBLEMA 3"));
+
         Box enbox = Box.createHorizontalBox();
-        enbox.add(new JLabel("<html>Mostrar la ESCUELA al que pertenece el PARTICIPANTE con CI 'X'</html>"));
+        enbox.add(new JLabel("<html>Mostrar al Participante con mayor edad inscrito en la escuela X</html>"));
         cajaIzq.add(enbox);
 
         Box caja1 = Box.createHorizontalBox();
-        caja1.add(new JLabel("CI:"));
+        caja1.add(new JLabel("ID:"));
         caja1.add(Box.createHorizontalStrut(10));
         caja1.add(t1);
         cajaIzq.add(caja1);
 
-        
-        
         Box outbox = Box.createHorizontalBox();
         outbox.add(salida);
         cajaIzq.add(outbox);
@@ -130,27 +131,24 @@ public class EscuelasPanel extends JPanel {
     }
 
     public Object[][] llenarTabla() {
-        int x = lista.nroelem();
+        int x = lista.nroNodos();
         Object[][] v = new Object[x][4];
-        Participante elem;
+
+        NodoE r = lista.getP();
         int i = 0;
-        ColaParticipantes aux = new ColaParticipantes();
-        while (!lista.esvacia()) {
-            elem = lista.eliminar();
-            v[i][0] = elem.getCi();
-            v[i][1] = elem.getNombre();
-            v[i][2] = elem.getEdad();
-            v[i][3] = elem.getCategoria();
-            aux.adicionar(elem);
+        while (r != null) {
+            v[i][0] = r.getIdEscuela();
+            v[i][1] = r.getNombre();
+            v[i][2] = r.getTelefono();
+            v[i][3] = r.getDireccion();
+            r = r.getSig();
             i++;
         }
-        lista.vaciar(aux);
-        rowCount = 1;
+        rowCount = i + 1;
         return v;
     }
-    
-    /* PROBLEMA 2 */
-    
+
+    /* PROBLEMA 3 */
     public void ejecutar() {
         ejecutar = new JButton("EJECUTAR");
         ejecutar.addActionListener(new ActionListener() {
@@ -162,29 +160,10 @@ public class EscuelasPanel extends JPanel {
                     JOptionPane.showMessageDialog(null, "RELLENE DATOS");
                     return;
                 }
-                
+
                 salida.setText("El resultado es : Juan MACHACA");
+
                 
-
-                /*if (input == JOptionPane.YES_OPTION) {
-                    t1.setEditable(true);
-                    t2.setEditable(true);
-
-                    //TableModel model =  tabla.getModel();
-                    model.addRow(new Object[]{t1.getText(), t2.getText()});
-                    //lista.(new Macrodistrito(t2.getText(), t1.getText()));
-                    //rowCount++;
-                    
-                    t1.setText("");
-                    t2.setText("");
-                }*/
-
-                /*else if (input == JOptionPane.NO_OPTION){
-		            System.out.println("You selected: No");
-		        }else{
-		            System.out.println("none cancel");
-		            }
-                 */
             }
         });
     }

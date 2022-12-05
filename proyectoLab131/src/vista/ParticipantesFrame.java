@@ -2,16 +2,14 @@ package vista;
 
 import javax.swing.JFrame;
 import estructuras.ColaParticipantes;
+import estructuras.LSimpleE;
 
-public class ParticipantesFrame extends JFrame {
+public class ParticipantesFrame extends JFrame {    
 
-    private ColaParticipantes lista;    
-
-    public ParticipantesFrame(ColaParticipantes lista) {
-        this.lista = lista;
+    public ParticipantesFrame(ColaParticipantes lista, LSimpleE le) {        
         setTitle("PARTICIPANTES");        
         setBounds(100, 100, 900, 500);
-        ParticipantesPanel lm = new ParticipantesPanel(lista);
+        ParticipantesPanel lm = new ParticipantesPanel(lista, le);
         add(lm);
     }
 }
