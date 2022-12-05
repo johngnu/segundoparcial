@@ -1,7 +1,7 @@
 package vista;
 
 import javax.swing.JFrame;
-import proyectolab131.LSimpleM;
+import estructuras.LSimpleM;
 
 public class MacrodistritosFrame extends JFrame {
 

@@ -15,9 +15,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import proyectolab131.LSimpleM;
-import proyectolab131.Macrodistrito;
-import proyectolab131.NodoM;
+import estructuras.LSimpleM;
+import estructuras.Macrodistrito;
+import estructuras.NodoM;
 
 public class MacrodistritosPanel extends JPanel {
 

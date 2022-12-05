@@ -15,8 +15,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import proyectolab131.ColaParticipantes;
-import proyectolab131.Participante;
+import estructuras.ColaParticipantes;
+import estructuras.Participante;
 
 public class EscuelasPanel extends JPanel {
 

@@ -1,4 +1,4 @@
-package vista;
+package examples;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

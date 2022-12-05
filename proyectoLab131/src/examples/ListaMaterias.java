@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventanas;
+package examples;
 
 
 import javax.swing.table.DefaultTableModel;
-import proyectolab131.LSimpleM;
-import proyectolab131.NodoC;
-import proyectolab131.NodoM;
+import estructuras.LSimpleM;
+import estructuras.NodoC;
+import estructuras.NodoM;
 
 /**
  *

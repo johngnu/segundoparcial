@@ -1,4 +1,4 @@
-package proyectolab131;
+package estructuras;
 
 public class PilaInstructores {
 

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventanas;
+package examples;
 
 
 import javax.swing.table.DefaultTableModel;
-import proyectolab131.LSimpleE;
-import proyectolab131.NodoE;
+import estructuras.LSimpleE;
+import estructuras.NodoE;
 
 /**
  *

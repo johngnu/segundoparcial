@@ -1,5 +1,5 @@
 
-package vista;
+package examples;
 import javax.swing.*;
 import java.awt.*;
 

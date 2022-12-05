@@ -1,7 +1,7 @@
 package vista;
 
 import javax.swing.JFrame;
-import proyectolab131.ColaParticipantes;
+import estructuras.ColaParticipantes;
 
 public class ParticipantesFrame extends JFrame {
 

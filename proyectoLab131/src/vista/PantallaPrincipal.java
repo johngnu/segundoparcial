@@ -14,9 +14,9 @@ import Controlador.Pedido;
 import Controlador.PilaPedido;
 import Controlador.PilaPlato;
 import Controlador.Plato;
-import proyectolab131.ColaParticipantes;
-import proyectolab131.LSimpleM;
-import proyectolab131.NodoM;
+import estructuras.ColaParticipantes;
+import estructuras.LSimpleM;
+import estructuras.NodoM;
 
 public class PantallaPrincipal extends JPanel {
 

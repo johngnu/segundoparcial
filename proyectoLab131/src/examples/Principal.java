@@ -1,8 +1,8 @@
-package Ventanas;
+package examples;
 
 import java.awt.BorderLayout;
-import proyectolab131.LSimpleE;
-import proyectolab131.LSimpleM;
+import estructuras.LSimpleE;
+import estructuras.LSimpleM;
 
 /**
  *
